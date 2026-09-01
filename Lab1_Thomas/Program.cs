@@ -1,9 +1,14 @@
-﻿//String interpolation variables
-string first = "Arrie", last = "Thomas";
-// First Name: Arrie from the variable first and Last Name: Thomas from the variable last
-Console.WriteLine($"First Name: {first}");
-Console.WriteLine($"Last Name:  {last}");
-// Date and Time plus one sentence program description
-Console.WriteLine("Date: 01/09/2026");
-Console.WriteLine("Time: 10:00 AM");
-Console.WriteLine("Introducing myself to the class");
+﻿//Name: Arrie Thomas
+//Date: 09/01/2026
+//Description: Introduces myself and demonstrates Console output.
+
+Console.WriteLine("===================================");
+Console.WriteLine("  Welcome to my first C# program!");
+Console.WriteLine("===================================");
+Console.Write("Course: ");
+Console.WriteLine("COP2360C - C# Programming I");
+
+// Declare variables and use string interpolation
+string myName = "Arrie Thomas";
+Console.WriteLine($"My name is {myName} and I'm learning C#.");
+
