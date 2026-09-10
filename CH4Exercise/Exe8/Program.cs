@@ -2,34 +2,33 @@
 using System.Collections;
 
 
-class GuessingGame
+class RockPaperScissors
 {
     static void Main()
     {
-        Console.Write("Enter a number between 1 and 11: ");
-        int inputNumber = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter your choice (r for rock, p for paper, or s for scissors): ");
+        char userChoice = Console.ReadLine().ToLower()[0];
 
-        if (inputNumber >= 1 && inputNumber <= 11)
+        Random random = new Random();
+        int computerChoiceIndex = random.Next(0, 3);
+        char[] choices = { 'r', 'p', 's' };
+        char computerChoice = choices[computerChoiceIndex];
+
+        Console.WriteLine($"Computer chose: {computerChoice}");
+
+        if (userChoice == computerChoice)
         {
-            Random random = new Random();
-            int randomNumber = random.Next(1, 12); // Generates a number between 1 and 11
-
-            if (inputNumber == randomNumber)
-            {
-                Console.WriteLine("Congratulations! You guessed the correct number.");
-            }
-            else if (inputNumber < randomNumber)
-            {
-                Console.WriteLine($"Your guess is too low. The correct number was {randomNumber}. Better luck next time!");
-            }
-            else
-            {
-                Console.WriteLine($"Your guess is too high. The correct number was {randomNumber}. Better luck next time!");
-            }
+            Console.WriteLine("It's a tie!");
+        }
+        else if ((userChoice == 'r' && computerChoice == 's') ||
+                 (userChoice == 'p' && computerChoice == 'r') ||
+                 (userChoice == 's' && computerChoice == 'p'))
+        {
+            Console.WriteLine("You win!");
         }
         else
         {
-            Console.WriteLine("Invalid input. Please enter a number between 1 and 11.");
+            Console.WriteLine("Computer wins!");
         }
     }
 }
