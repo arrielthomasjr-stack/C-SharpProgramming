@@ -5,27 +5,36 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Job
 {
-    private string description;
-    private double hoursToComp;
-    private double perHourRate;
-    private double totalFee;
+   private string description;
+   private double hoursToComp;
+   private double perHourRate;
+   private double totalFee;
 
-    public Job(string description, double hoursToComp, double perHourRate)
-    {
+   public Job(string description, double hoursToComp, double perHourRate)
+   {
         this.description = description;
         this.hoursToComp = hoursToComp;
         this.perHourRate = perHourRate;
 
         CalculateTotalFee();
-    }
-    public static Job operator +(Job job1, Job job2)
-    {
+   }
+   public static Job operator +(Job job1, Job job2)
+   {
         string combinedDescription = job1.description + " and " + job2.description;
         double combinedHours = job1.hoursToComp + job2.hoursToComp;
         double averageRate = (job1.perHourRate + job2.perHourRate) / 2;
 
         return new Job(combinedDescription, combinedHours, averageRate);
+   }
+    public static Job weightedRate(Job job1, Job job2)
+    {
+        string combinedDescription = job1.description + " and " + job2.description;
+        double combinedHours = job1.hoursToComp + job2.hoursToComp;
+        double weightedRate = (job1.totalFee + job2.totalFee) / combinedHours;
+
+        return new Job(combinedDescription, combinedHours, weightedRate);
     }
+   
 
     private void CalculateTotalFee()
     {

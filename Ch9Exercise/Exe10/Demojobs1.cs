@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 class DemoJobs
 {
     static void Main(string[] args)
@@ -31,5 +30,12 @@ class DemoJobs
         Console.WriteLine("\nCombining job1 and job4 using the + operator:");
         Job anotherCombinedJob = job1 + job4;
         Console.WriteLine(anotherCombinedJob);
+
+        //New overload//
+        Job fairCombo = Job.weightedRate(job1, job2);
+
+        Console.WriteLine("\nCombining job1 and job2 using the New overload:");
+        Console.WriteLine(fairCombo);
+
     }
 }
